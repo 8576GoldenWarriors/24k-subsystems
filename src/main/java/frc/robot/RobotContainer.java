@@ -4,23 +4,24 @@
 
 package frc.robot;
 
-import frc.robot.Constants.ControllerConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.IntakeIn;
 import frc.robot.commands.IntakeOut;
 import frc.robot.commands.Shoot;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 
 public class RobotContainer {
 
   public static final Intake m_Intake = new Intake();
   public static final Shooter m_Shooter = new Shooter();
+
+
+  public static final CommandXboxController driverController = 
+    new CommandXboxController(Constants.ControllerConstants.kDriverControllerPort);
 
   public static final CommandXboxController operatorController = 
     new CommandXboxController(Constants.ControllerConstants.kOperatorControllerPort);
@@ -39,6 +40,9 @@ public class RobotContainer {
    //Shooter
     operatorController.y().onTrue(new Shoot(m_Shooter));  //b button ends shoot command, defined in shoot command
     
+    //Climber
+    //Window button is button #7
+    //Three line button is button #8
     //operatorController.a().and(operatorController.leftBumper()).onTrue( COMMAND FOR INTAKE TO 0 )
   }
 

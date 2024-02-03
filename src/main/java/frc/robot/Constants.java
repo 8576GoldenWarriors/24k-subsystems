@@ -38,6 +38,9 @@ public final class Constants {
   }
 
   public static class ClimberConstants{
+    public static final int leftCANSparkID = 4;
+    public static final int rightCANSparkID = 5;
 
+    public static final double kClimberSpeed = 0.05;
   }
 }
