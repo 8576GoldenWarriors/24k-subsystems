@@ -19,12 +19,16 @@ public class IntakeIn extends Command {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    intake.setBrake();
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intake.setRollerSpeed(Constants.IntakeConstants.kRollerInSpeed);
+    if (intake.getDigitalInput().get()) {
+          intake.setRollerSpeed(Constants.IntakeConstants.kRollerInSpeed);
+    }
   }
 
   // Called once the command ends or is interrupted.
@@ -36,6 +40,6 @@ public class IntakeIn extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

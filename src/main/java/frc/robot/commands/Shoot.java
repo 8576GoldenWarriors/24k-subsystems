@@ -4,18 +4,22 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.math.controller.BangBangController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Transport;
 
 public class Shoot extends Command {
-  public Shooter shooter;
+  public Transport Transport;
   /** Creates a new Shoot. */
-  public Shoot(Shooter shooter) {
-    this.shooter = shooter;
 
-    addRequirements(shooter);
+  public BangBangController controller = new BangBangController();
+
+  public Shoot(Transport Transport) {
+    this.Transport = Transport;
+
+    addRequirements(Transport);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
@@ -26,13 +30,13 @@ public class Shoot extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.setSpeed(Constants.ShooterConstants.kShooterSpeed);
+    Transport.setSpeed(Constants.TransportConstants.kTransportSpeed);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    shooter.setSpeed(0);
+    Transport.setSpeed(0);
   }
 
   // Returns true when the command should end.

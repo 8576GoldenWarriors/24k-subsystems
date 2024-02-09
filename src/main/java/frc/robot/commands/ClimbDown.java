@@ -4,45 +4,45 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.math.controller.BangBangController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.math.controller.BangBangController;
 import frc.robot.Constants;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Climber;
 
-public class IntakeOut extends Command {
-  public Intake intake;
+public class ClimbDown extends Command {
+  public Climber Climber;
+  /** Creates a new ClimbDown. */
 
   public BangBangController controller = new BangBangController();
-  
-  /** Creates a new IntakeOut. */
-  public IntakeOut(Intake intake) {
-    this.intake = intake;
 
-    addRequirements(intake);
+  public ClimbDown(Climber Climber) {
+    this.Climber = Climber;
+
+    addRequirements(Climber);
     // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    intake.SetCoast();
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-      intake.setRollerSpeed(Constants.IntakeConstants.kRollerOutSpeed);
-    }
+    Climber.setSpeed(-controller.calculate(Constants.ClimberConstants.kClimberSpeed));
+  }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    intake.setRollerSpeed(0);
+    Climber.setSpeed(0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+
     return false;
+    
   }
 }

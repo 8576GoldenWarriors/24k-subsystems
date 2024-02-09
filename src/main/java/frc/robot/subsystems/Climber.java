@@ -6,6 +6,8 @@ package frc.robot.subsystems;
 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.revrobotics.RelativeEncoder;
+
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -27,8 +29,16 @@ public class Climber extends SubsystemBase {
     rightMotor.set(speed);
   }
 
+  public RelativeEncoder getLeftEncoder() {
+    return leftMotor.getEncoder();
+  }
+
+  public RelativeEncoder getRightEncoder() {
+    return rightMotor.getEncoder();
+  }
+
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    //This method will be called once per scheduler run
   }
 }
