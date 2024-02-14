@@ -73,7 +73,7 @@ public class IntakeUp extends Command {
       if (motorPower == 0) {
         done = true;
       }
-
+      
       System.out.println(error);
 
       intake.setArmSpeed(motorPower);
@@ -94,6 +94,9 @@ public class IntakeUp extends Command {
   @Override
   public boolean isFinished() {
     if (done) {
+      return true;
+    }
+    if(intake.getArmMotorVoltage()>20){
       return true;
     }
     

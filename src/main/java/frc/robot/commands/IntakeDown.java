@@ -95,6 +95,9 @@ public class IntakeDown extends Command {
     if (done) {
       return true;
     }
+    if(intake.getArmMotorVoltage()>20){
+      return true;
+    }
 
     return false;
 

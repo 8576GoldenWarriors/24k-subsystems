@@ -10,6 +10,7 @@ import frc.robot.subsystems.Intake;
 
 public class IntakeIn extends Command {
   public Intake intake;
+
   /** Creates a new Intake. */
   public IntakeIn(Intake intake) {
     this.intake = intake;
