@@ -25,8 +25,13 @@ public class Climber extends SubsystemBase {
   }
 
   public void setSpeed(double speed){
+    
     leftMotor.set(speed);
     rightMotor.set(speed);
+
+    rightMotor.setSmartCurrentLimit(5);
+    leftMotor.setSmartCurrentLimit(5);
+    
   }
 
   public RelativeEncoder getLeftEncoder() {

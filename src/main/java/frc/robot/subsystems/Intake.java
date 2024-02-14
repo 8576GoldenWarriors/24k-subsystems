@@ -23,6 +23,9 @@ public class Intake extends SubsystemBase {
     photoelectric = new DigitalInput(Constants.IntakeConstants.IntakeSensorID);
     rollerMotor = new CANSparkMax(Constants.IntakeConstants.rollerCANSparkID, MotorType.kBrushless);
     armMotor = new CANSparkMax(Constants.IntakeConstants.pivotCANSparkID, MotorType.kBrushless);
+    
+    armMotor.setSmartCurrentLimit(5);
+
   }
   
   public void setRollerSpeed(double rollerSpeed) {
