@@ -53,6 +53,7 @@ public class Intake extends SubsystemBase {
     return photoelectric;
   }
 
+
   public void SetCoast() {
     rollerMotor.setIdleMode(IdleMode.kCoast);
   }

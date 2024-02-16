@@ -12,7 +12,7 @@ import frc.robot.subsystems.Intake;
 public class IntakeOut extends Command {
   public Intake intake;
 
-  public BangBangController controller = new BangBangController();
+  //public BangBangController controller = new BangBangController();
   
   /** Creates a new IntakeOut. */
   public IntakeOut(Intake intake) {

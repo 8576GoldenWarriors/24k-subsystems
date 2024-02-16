@@ -12,9 +12,9 @@ public class Transport extends SubsystemBase {
     private CANSparkMax leftMotor;
     private CANSparkMax rightMotor;
 
-    public Transport() {
-        leftMotor = new CANSparkMax(Constants.TransportConstants.leftCANSparkID, MotorType.kBrushless);
-        rightMotor = new CANSparkMax(Constants.TransportConstants.leftCANSparkID, MotorType.kBrushless);
+    public Transport(Intake intake) {
+        //leftMotor = intake.getLeftMotor();
+        //rightMotor = intake.getRightMotor();
     }
 
     public void setSpeed(double speed) {

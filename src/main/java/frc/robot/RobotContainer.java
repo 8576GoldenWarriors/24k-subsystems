@@ -25,7 +25,7 @@ public class RobotContainer {
   public static final Intake m_Intake = new Intake();
   public static final Shooter m_Shooter = new Shooter();
 
-  public static final Transport m_Transport = new Transport();
+  //public static final Transport m_Transport = new Transport();
   public static final Climber m_Climber = new Climber();
 
 
@@ -43,11 +43,11 @@ public class RobotContainer {
 
   private void configureBindings() {
     // Intake
-    operatorController.a().onTrue(new IntakeIn(m_Intake));
-    operatorController.x().onTrue(new IntakeOut(m_Intake));
+    operatorController.a().whileTrue(new IntakeIn(m_Intake));
+    operatorController.x().whileTrue(new IntakeOut(m_Intake));
 
    //Shooter
-    operatorController.y().onTrue(new Shoot(m_Transport));  //b button ends shoot command, defined in shoot command
+    operatorController.y().whileTrue(new Shoot(m_Shooter));  //b button ends shoot command, defined in shoot command
     
     //Climber
     //Window button is button #7
@@ -56,10 +56,12 @@ public class RobotContainer {
     operatorController.button(9).onTrue(new ClimbDown(m_Climber));
     //operatorController.a().and(operatorController.leftBumper()).onTrue( COMMAND FOR INTAKE TO 0 )
 
-    if(operatorController.leftBumper().getAsBoolean()) {
-    operatorController.a().onTrue(new IntakeUp(m_Intake));
-    operatorController.x().onTrue(new IntakeDown(m_Intake));
-  }
+  //   if(operatorController.leftBumper().getAsBoolean()) {
+  //   operatorController.a().onTrue(new IntakeUp(m_Intake));
+  //   operatorController.x().onTrue(new IntakeDown(m_Intake));
+  // }
+    operatorController.a().and(operatorController.leftBumper()).whileTrue( new IntakeUp(m_Intake) );
+    operatorController.x().and(operatorController.leftBumper()).whileTrue( new IntakeDown(m_Intake) );
   }
 
   
