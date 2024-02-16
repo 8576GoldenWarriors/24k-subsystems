@@ -23,6 +23,8 @@ public class Intake extends SubsystemBase {
     photoelectric = new DigitalInput(Constants.IntakeConstants.IntakeSensorID);
     rollerMotor = new CANSparkMax(Constants.IntakeConstants.rollerCANSparkID, MotorType.kBrushless);
     armMotor = new CANSparkMax(Constants.IntakeConstants.pivotCANSparkID, MotorType.kBrushless);
+
+
   }
   
   public void setRollerSpeed(double rollerSpeed) {
@@ -34,8 +36,13 @@ public class Intake extends SubsystemBase {
   }
 
   public void setArmSpeed(double armSpeed){
+    armMotor.setSmartCurrentLimit(5);
+
+    
     armMotor.set(armSpeed);
   }
+
+
 
   public double getArmSpeed() {
     return armMotor.get();
@@ -66,4 +73,5 @@ public class Intake extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
 }

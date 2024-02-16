@@ -29,6 +29,14 @@ public class Shooter extends SubsystemBase {
     rightMotor.set(-speed);
   }
 
+  public double getLeftMotorVoltage(){
+    return leftMotor.getBusVoltage();
+  }
+
+  public double getRightMotorVoltage(){
+    return rightMotor.getBusVoltage();
+  }
+
   public RelativeEncoder getLeftEncoder() {
     return leftMotor.getEncoder();
   }

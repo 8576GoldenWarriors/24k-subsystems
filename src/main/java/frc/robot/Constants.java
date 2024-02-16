@@ -35,6 +35,7 @@ public final class Constants {
     public static final int rightCANSparkID = 500;
 
     public static final double kClimberSpeed = 0.05;
+    public static final double kClimberVoltage = 10.0;
   }
 
   public static class TransportConstants {
