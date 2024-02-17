@@ -27,7 +27,7 @@ public final class Constants {
     public static final int leftCANSparkID = 26;
     public static final int rightCANSparkID = 25;
     
-    public static final double kShooterSpeed = 0.85;
+    public static final double kShooterSpeed = 0.99;
   }
 
   public static class ClimberConstants{
