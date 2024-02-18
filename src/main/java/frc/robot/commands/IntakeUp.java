@@ -94,13 +94,9 @@ public class IntakeUp extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (done) {
+    if (intake.getArmVoltage()>15){
       return true;
     }
-    // if(intake.getArmMotorVoltage()>20){
-    //   return true;
-    // }
-    
     return false;
   }
 }
