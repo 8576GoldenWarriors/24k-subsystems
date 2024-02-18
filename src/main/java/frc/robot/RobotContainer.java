@@ -47,21 +47,22 @@ public class RobotContainer {
     operatorController.x().whileTrue(new IntakeOut(m_Intake));
 
    //Shooter
+   //On the doc it says y should be toggle, change to this if needed.
+   //operatorController.y().onTrue(new Shoot(m_Shooter));
     operatorController.y().whileTrue(new Shoot(m_Shooter));  //b button ends shoot command, defined in shoot command
     
     //Climber
-    //Window button is button #7
-    operatorController.button(7).onTrue(new Climb(m_Climber));
-    //Three line button is button #8\
-    operatorController.button(9).onTrue(new ClimbDown(m_Climber));
-    //operatorController.a().and(operatorController.leftBumper()).onTrue( COMMAND FOR INTAKE TO 0 )
-
-  //   if(operatorController.leftBumper().getAsBoolean()) {
-  //   operatorController.a().onTrue(new IntakeUp(m_Intake));
-  //   operatorController.x().onTrue(new IntakeDown(m_Intake));
-  // }
+    //Window button is button #7. Retracts the climber.
+    operatorController.button(7).onTrue(new ClimbDown(m_Climber));
+    //Three line button is button #8. Extends the climber.
+    operatorController.button(9).onTrue(new Climb(m_Climber));
+    
+    //Arm
+    //Commented bindings match the documented bindings
     operatorController.a().and(operatorController.leftBumper()).whileTrue( new IntakeUp(m_Intake) );
     operatorController.x().and(operatorController.leftBumper()).whileTrue( new IntakeDown(m_Intake) );
+    //operatorController.a().and(operatorController.leftBumper()).onTrue(new IntakeUp(m_Intake));
+    //operatorController.x().and(operatorController.leftBumper()).onTrue(new IntakeDown(m_Intake));
   }
 
   

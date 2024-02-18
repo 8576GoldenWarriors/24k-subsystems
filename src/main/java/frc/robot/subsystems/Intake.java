@@ -42,7 +42,9 @@ public class Intake extends SubsystemBase {
     armMotor.set(armSpeed);
   }
 
-
+  public double getArmVoltage(){
+    return armMotor.getBusVoltage();
+  }
 
   public double getArmSpeed() {
     return armMotor.get();

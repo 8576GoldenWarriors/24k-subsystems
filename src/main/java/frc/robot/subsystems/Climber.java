@@ -7,7 +7,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
-
+import com.revrobotics.CANSparkBase.IdleMode;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -22,6 +22,9 @@ public class Climber extends SubsystemBase {
   public Climber() {
     leftMotor = new CANSparkMax(Constants.ClimberConstants.leftCANSparkID, MotorType.kBrushless);
     rightMotor = new CANSparkMax(Constants.ClimberConstants.rightCANSparkID, MotorType.kBrushless);
+
+    leftMotor.setIdleMode(IdleMode.kCoast);
+    rightMotor.setIdleMode(IdleMode.kCoast);
   }
 
   public void setSpeed(double speed){

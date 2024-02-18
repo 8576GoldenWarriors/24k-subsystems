@@ -13,7 +13,7 @@ public final class Constants {
     public static final int pivotCANSparkID = 13;
 
     public static final double kRollerInSpeed = -0.50;
-    public static final double kRollerOutSpeed = 0.4;
+    public static final double kRollerOutSpeed = 0.65;
     
     public static final double kArmUpSpeed = 0.2;
     public static final double kArmDownSpeed = -0.2;
@@ -27,15 +27,15 @@ public final class Constants {
     public static final int leftCANSparkID = 26;
     public static final int rightCANSparkID = 25;
     
-    public static final double kShooterSpeed = 1;
+    public static final double kShooterSpeed = 0.6;
   }
 
   public static class ClimberConstants{
-    public static final int leftCANSparkID = 400;
-    public static final int rightCANSparkID = 500;
+    public static final int leftCANSparkID = 31;
+    public static final int rightCANSparkID = 32;
 
     public static final double kClimberSpeed = 0.05;
-    public static final double kClimberVoltage = 10.0;
+
   }
 
   public static class TransportConstants {
